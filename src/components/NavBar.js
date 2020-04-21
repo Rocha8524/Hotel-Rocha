@@ -18,7 +18,7 @@ export default class extends Component {
                 <div className="nav-center">
                     <div className="nav-header">
                         <Link to="/">
-                            <img src={logo} alt="Beach Resort" />
+                            <img src={logo} alt="Hotel Rocha" />
                         </Link>
                         <button
                             type="button"
