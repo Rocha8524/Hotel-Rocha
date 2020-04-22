@@ -2,14 +2,18 @@ import React from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
+import Services from "../components/Services";
 
 const Home = () => {
     return (
-        <Hero hero="defaultHero">
-            <Banner title="Luxury Rooms" subtitle="High-end luxurious rooms starting at $199 per night">
-                <Link to="/rooms" className="btn-primary">Our Rooms</Link>
-            </Banner>
-        </Hero>
+        <React.Fragment>
+            <Hero hero="defaultHero">
+                <Banner title="Luxury Rooms" subtitle="High-end luxurious rooms starting at $199 per night">
+                    <Link to="/rooms" className="btn-primary">Our Rooms</Link>
+                </Banner>
+            </Hero>
+            <Services />
+        </React.Fragment>
     );
 };
 
