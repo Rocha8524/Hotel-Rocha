@@ -3,7 +3,7 @@ import logo from "../images/logo.svg";
 import { FaHotel } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-export default class extends Component {
+class NavBar extends Component {
     state = {
         isOpen: false
     }
@@ -40,3 +40,5 @@ export default class extends Component {
         )
     }
 }
+
+export default NavBar;

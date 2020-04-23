@@ -5,7 +5,7 @@ import { GiSoccerBall } from "react-icons/gi";
 import { FaBeer, FaSwimmingPool, FaShuttleVan, FaUmbrellaBeach, FaShoppingBag } from "react-icons/fa";
 
 
-export default class Services extends Component {
+class Services extends Component {
 
     state = {
         services: [
@@ -40,7 +40,7 @@ export default class Services extends Component {
                 info: "Enjoy our private "
             }
         ]
-    };
+    }
 
     render() {
         return (
@@ -50,15 +50,17 @@ export default class Services extends Component {
                     {this.state.services.map((item, index) => {
                         return (
                             <article key={index} className="service">
-                                <div>{item.icon}</div>
+                                <span>{item.icon}</span>
                                 <h6>{item.title}</h6>
                                 <p>{item.info}</p>
                             </article>
-                        );
-                    })};
+                        )
+                    })}
                 </div>
 
             </div>
         )
     }
 };
+
+export default Services;
