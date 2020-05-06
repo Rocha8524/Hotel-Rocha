@@ -9,7 +9,7 @@ class RoomProvider extends Component {
         rooms: [],
         sortedRooms: [],
         featuredRooms: [],
-        loading: true,
+        loading: true
     };
 
     componentDidMount() {
@@ -28,8 +28,8 @@ class RoomProvider extends Component {
         let tempItems = items.map(item => {
             let id = item.sys.id;
 
-            let images = item.fields.images.map(images =>
-                images.fields.file.url);
+            let images = item.fields.images.map(image =>
+                image.fields.file.url);
 
             let room = { ...item.fields, images, id };
             return room;
@@ -37,9 +37,9 @@ class RoomProvider extends Component {
         return tempItems;
     };
 
-    getRoom = (single) => {
+    getRoom = (slug) => {
         let tempRooms = [...this.state.rooms];
-        const room = tempRooms.find((room) => room.single === single);
+        const room = tempRooms.find((room) => room.slug === slug);
         return room;
     };
 
@@ -53,5 +53,13 @@ class RoomProvider extends Component {
 };
 
 const RoomConsumer = RoomContext.Consumer;
+
+export const withRoomConsumer = (Component) => {
+    return function ConsumerWrapper(props) {
+        return <RoomConsumer>
+            {value => <Component {...props} context={value} />}
+        </RoomConsumer>
+    }
+}
 
 export { RoomProvider, RoomConsumer, RoomContext };

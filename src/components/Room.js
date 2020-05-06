@@ -16,7 +16,8 @@ const Room = memo(({ room }) => {
                     <h6>${price}</h6>
                     <p>per night</p>
                 </div>
-                <Link to={`/rooms/${slug}`} className="btn-primary room-link">Features</Link>
+                <Link to={`/rooms/${slug}`}
+                    className="btn-primary room-link">Features</Link>
             </div>
             <p className="room-info">{name}</p>
         </article>
@@ -28,7 +29,7 @@ Room.propTypes = {
         name: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         images: PropTypes.arrayOf(PropTypes.string).isRequired,
-        price: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired
     })
 };
 

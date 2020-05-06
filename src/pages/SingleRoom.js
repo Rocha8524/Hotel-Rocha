@@ -8,11 +8,10 @@ import StyledHero from "../components/StyledHero";
 export default class SingleRoom extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             slug: this.props.match.params.slug,
             defaultBcg: defaultBcg
-        }
+        };
     };
 
     static contextType = RoomContext;
@@ -37,7 +36,7 @@ export default class SingleRoom extends Component {
         const [mainImg, ...defaultImages] = images;
 
         return (
-            <>
+            <React.Fragment>
                 <StyledHero img={mainImg || this.state.defaultBcg}>
                     <Banner title={`${name} room`}>
                         <Link to="/rooms" className="btn-primary">
@@ -56,9 +55,26 @@ export default class SingleRoom extends Component {
                             <h4>Deatils</h4>
                             <p>{description}</p>
                         </article>
+                        <article className="info">
+                            <h3>Info</h3>
+                            <h6>Price: ${price} per night</h6>
+                            <h6>Size: {size} Sq Feet</h6>
+                            <h6>Max Capacity :{" "}
+                                {capacity > 1 ? `${capacity} people` : `${capacity} person `}</h6>
+                            <h6>{pets ? "pets allowed" : "no pets allowed"}</h6>
+                            <h6>{breakfast && "free breakfast included"}</h6>
+                        </article>
                     </div>
                 </section>
-            </>
+                <section className="room-extras">
+                    <h6>Extras</h6>
+                    <ul className="extras">
+                        {extras.map((item, index) => {
+                            return <li key={index}>- {item}</li>
+                        })}
+                    </ul>
+                </section>
+            </React.Fragment>
         );
     }
 }

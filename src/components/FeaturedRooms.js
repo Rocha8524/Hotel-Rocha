@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import Title from "./Title";
 import { RoomContext } from "../Context";
 import Loading from "./Loading";
 import Room from "./Room";
-import Title from "./Title";
 
 export default class FeaturedRooms extends Component {
     static contextType = RoomContext;
@@ -22,5 +22,5 @@ export default class FeaturedRooms extends Component {
                 </div>
             </section>
         );
-    };
-};
+    }
+}
