@@ -7,7 +7,7 @@ import FeaturedRooms from "../components/FeaturedRooms";
 
 const Home = () => {
     return (
-        <React.Fragment>
+        <>
             <Hero hero="defaultHero">
                 <Banner title="Luxury Rooms" subtitle="High-end luxurious rooms starting at $199 per night">
                     <Link to="/rooms" className="btn-primary">Our Rooms</Link>
@@ -15,8 +15,8 @@ const Home = () => {
             </Hero>
             <Services />
             <FeaturedRooms />
-        </React.Fragment>
-    );
+        </>
+    )
 };
 
 export default Home;

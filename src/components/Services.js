@@ -6,7 +6,6 @@ import { FaBeer, FaSwimmingPool, FaShuttleVan, FaUmbrellaBeach, FaShoppingBag } 
 
 
 class Services extends Component {
-
     state = {
         services: [
             {
@@ -44,22 +43,21 @@ class Services extends Component {
 
     render() {
         return (
-            <div className="services">
+            <section className="services">
                 <Title title="Services" />
                 <div className="services-center">
-                    {this.state.services.map((item, index) => {
+                    {this.state.services.map(item => {
                         return (
-                            <article key={index} className="service">
+                            <article key={`item-${item.title}`} className="service">
                                 <span>{item.icon}</span>
                                 <h6>{item.title}</h6>
                                 <p>{item.info}</p>
                             </article>
-                        )
+                        );
                     })}
                 </div>
-
-            </div>
-        )
+            </section>
+        );
     }
 };
 

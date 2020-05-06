@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 class NavBar extends Component {
     state = {
         isOpen: false
-    }
+    };
 
     handleToggle = () => {
         this.setState({ isOpen: !this.state.isOpen })
-    }
+    };
 
     render() {
         return (
@@ -37,8 +37,8 @@ class NavBar extends Component {
                     </ul>
                 </div>
             </nav>
-        )
-    }
-}
+        );
+    };
+};
 
 export default NavBar;
