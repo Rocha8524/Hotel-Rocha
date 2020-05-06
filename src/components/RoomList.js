@@ -4,7 +4,7 @@ import Room from "./Room";
 const RoomsList = ({ rooms }) => {
     if (rooms.length === 0) {
         return (
-            <div class="empty-search">
+            <div className="empty-search">
                 <h5>
                     Unfortunatly there are no rooms that matched your search preferences
         </h5>

@@ -8,7 +8,7 @@ const getUnique = (items, value) => {
     return [...new Set(items.map(item => item[value]))];
 };
 
-const RoomsFilter = (rooms) => {
+const RoomsFilter = ({ rooms }) => {
 
     const context = useContext(RoomContext);
     const { handleChange, type, capacity, price, minPrice, maxPrice, minSize, maxSize, breakfast, pets } = context;
@@ -26,19 +26,37 @@ const RoomsFilter = (rooms) => {
         );
     });
 
+    let guests = getUnique(rooms, "capacity");
+    guests = guests.map((item, index) => {
+        return <option key={index} value={item}>{item}</option>
+    })
+
     return (
         <section className="filter-container">
             <Title title="Search Rooms" />
             <form className="filter-form">
-                {}
                 <div className="form-group">
                     <label htmlFor="type">Room Type</label>
-                    <select className="form-control" name="type" id="type" value={type} onChange={handleChange}>
+                    <select
+                        className="form-control"
+                        name="type"
+                        id="type"
+                        value={type}
+                        onChange={handleChange}>
                         {types}
                     </select>
-
                 </div>
-                {}
+                <div className="form-group">
+                    <label htmlFor="capacity">Guests</label>
+                    <select
+                        className="form-control"
+                        name="capacity"
+                        id="capacity"
+                        value={capacity}
+                        onChange={handleChange}>
+                        {guests}
+                    </select>
+                </div>
             </form>
         </section>
     )
