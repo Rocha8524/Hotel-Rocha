@@ -13,7 +13,7 @@ const RoomsFilter = ({ rooms }) => {
     const context = useContext(RoomContext);
     const { handleChange, type, capacity, price, minPrice, maxPrice, minSize, maxSize, breakfast, pets } = context;
 
-    // Get unique items
+    // Get unique types
     let types = getUnique(rooms, "type");
 
     // Add all types
@@ -23,18 +23,19 @@ const RoomsFilter = ({ rooms }) => {
     types = types.map((item, index) => {
         return (
             <option value={item} key={index}>{item}</option>
-        );
+        )
     });
 
     let guests = getUnique(rooms, "capacity");
-    guests = guests.map((item, index) => {
-        return <option key={index} value={item}>{item}</option>
-    })
+    guests = guests.map((item, index) => (
+        <option key={index} value={item}> {item}</option>
+    ));
 
     return (
         <section className="filter-container">
             <Title title="Search Rooms" />
             <form className="filter-form">
+                {/* Room Type */}
                 <div className="form-group">
                     <label htmlFor="type">Room Type</label>
                     <select
@@ -46,6 +47,7 @@ const RoomsFilter = ({ rooms }) => {
                         {types}
                     </select>
                 </div>
+                {/* Guests */}
                 <div className="form-group">
                     <label htmlFor="capacity">Guests</label>
                     <select
@@ -57,6 +59,23 @@ const RoomsFilter = ({ rooms }) => {
                         {guests}
                     </select>
                 </div>
+                {/* Room Price */}
+                <div className="form-group">
+                    <label htmlFor="price">
+                        Room Price: ${price}
+                    </label>
+                    <input
+                        className="form-control"
+                        type="range"
+                        name="price"
+                        min={minPrice}
+                        max={maxPrice}
+                        id="price"
+                        value={price}
+                        onChange={handleChange}>
+                    </input>
+                </div>
+
             </form>
         </section>
     )
